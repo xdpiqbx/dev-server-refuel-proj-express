@@ -1,0 +1,28 @@
+{
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  },
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.2"
+  },
+  "name": "dev-server-refuel-proj-express",
+  "description": "```code npm i -D nodemon npm i dotenv ```",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xdpiqbx/dev-server-refuel-proj-express.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xdpiqbx/dev-server-refuel-proj-express/issues"
+  },
+  "homepage": "https://github.com/xdpiqbx/dev-server-refuel-proj-express#readme"
+}
