@@ -18,6 +18,15 @@ app.use('/api-01/drivers', driversRouter);
 app.use('/api-01/cars', carsRouter);
 app.use('/api-01/checks', checksRouter);
 
+app.use((err, req, res, next) => {
+  res.status(err.status || 500);
+  res.json({
+    status: err.status,
+    message: err.message
+    // stack: err.stack // for DEV only!
+  });
+});
+
 dbDevRefuelBot
   .then(() => {
     app.listen(PORT, () => {
