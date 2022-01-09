@@ -6,13 +6,26 @@ const carModel = require('../../db/models/carModel');
 router
   .get('/', async (req, res) => {
     const cars = await carModel.getAllCars();
-    console.log(cars);
+    console.log(res);
     res.status(200).json({
       method: 'GET',
-      originalUrl: '/api-01/checks'
+      status: 200,
+      originalUrl: '/api-01/cars',
+      data: cars
     });
   })
-  .get('/:carId', () => {})
+  .get('/:carId', async (req, res) => {
+    // const cars = await carModel.getAllCars();
+    console.log(req);
+    console.log('===========');
+    console.log(req.params);
+    res.status(200).json({
+      method: 'GET',
+      status: 200,
+      originalUrl: '/api-01/cars/carID'
+      // data: cars
+    });
+  })
   .post('/', () => {}) // create new car
   .patch('/:carId', () => {}) // update car
   .delete('/:carId', () => {});
