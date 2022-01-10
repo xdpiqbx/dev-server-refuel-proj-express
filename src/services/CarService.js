@@ -18,9 +18,17 @@ class CarService {
     return error;
   }
 
-  async getAllCars() {
+  async getAllCarsModelNumberGas() {
     try {
-      return await this.repo.cars.getAllCars();
+      return await this.repo.cars.getAllCarsModelNumberGas();
+    } catch (error) {
+      throw this.serviceErrorCatcher(error);
+    }
+  }
+
+  async getAllCarsModelNumber() {
+    try {
+      return await this.repo.cars.getAllCarsModelNumber();
     } catch (error) {
       throw this.serviceErrorCatcher(error);
     }

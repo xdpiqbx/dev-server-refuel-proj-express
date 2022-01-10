@@ -1,32 +1,31 @@
 const httpStatus = require('../helpers/HttpResponseStatusCodes');
 
+const MainController = require('./MainController');
 const CarService = require('../services/CarService');
 
-class CarController {
+class CarController extends MainController {
   constructor() {
+    super();
     this.controller = {
       carService: new CarService()
     };
   }
 
-  errorCatcher(error) {
-    error.status = httpStatus.INTERNAL_SERVER_ERROR;
-    return error;
-  }
-
-  response(res, data) {
-    res.status(httpStatus.OK).json({
-      status: httpStatus.OK,
-      data
-    });
-  }
-
-  async listOfCars(req, res, next) {
+  async getAllCarsModelNumberGas(req, res, next) {
     try {
-      const cars = await this.controller.carService.getAllCars();
-      this.response(res, cars);
+      const cars = await this.controller.carService.getAllCarsModelNumberGas();
+      super.response(res, cars);
     } catch (error) {
-      next(this.errorCatcher(error));
+      next(super.errorCatcher(error));
+    }
+  }
+
+  async getAllCarsModelNumber(req, res, next) {
+    try {
+      const cars = await this.controller.carService.getAllCarsModelNumber();
+      super.response(res, cars);
+    } catch (error) {
+      next(super.errorCatcher(error));
     }
   }
 
@@ -34,9 +33,9 @@ class CarController {
     try {
       const { carId } = req.params;
       const drivers = await this.controller.carService.getDriversByCarId(carId);
-      this.response(res, drivers);
+      super.response(res, drivers);
     } catch (error) {
-      next(this.errorCatcher(error));
+      next(super.errorCatcher(error));
     }
   }
 }
