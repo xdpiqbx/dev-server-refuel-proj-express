@@ -27,6 +27,7 @@ const carRepository = {
     }
   },
   getCarByIdWithoutDriversIds: async carId => {
+    // done
     try {
       return await Car.findById(carId).select('-driversIds');
     } catch (error) {
@@ -34,6 +35,7 @@ const carRepository = {
     }
   },
   getInfoAboutCarWithDriversNames: async carId => {
+    // done
     try {
       return await Car.findById(carId).populate('driversIds', 'name -_id');
     } catch (error) {
@@ -41,18 +43,30 @@ const carRepository = {
     }
   },
   setCarGasolineResidue: async (carId, gasoline_residue) => {
+    // done
     try {
-      await Car.updateOne({ _id: carId }, { $set: { gasoline_residue } });
+      return await Car.updateOne(
+        { _id: carId },
+        { $set: { gasoline_residue } }
+      );
     } catch (error) {
       throw repoErrorCatcher(error);
     }
   },
-
   getDriversByCarId: async carId => {
+    // done
     try {
       return await Car.findById(carId)
         .select('-gasoline_residue')
         .populate('driversIds', 'name');
+    } catch (error) {
+      throw repoErrorCatcher(error);
+    }
+  },
+  addNewCarToDb: async newCar => {
+    // done
+    try {
+      return await Car.create(newCar);
     } catch (error) {
       throw repoErrorCatcher(error);
     }

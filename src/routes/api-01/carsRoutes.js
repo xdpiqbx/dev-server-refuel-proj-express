@@ -6,14 +6,25 @@ const CarController = require('../../controllers/CarController');
 const carController = new CarController();
 
 router
-  .get('/model-number', carController.getAllCarsModelNumber.bind(carController))
   .get(
-    '/model-number-gas',
+    '/models-numbers-gas',
     carController.getAllCarsModelNumberGas.bind(carController)
   )
+  .get(
+    '/models-numbers',
+    carController.getAllCarsModelNumber.bind(carController)
+  )
+  .get(
+    '/without-drivers-ids/:carId',
+    carController.getCarByIdWithoutDriversIds.bind(carController)
+  )
   .get('/:carId', carController.driversAdmittedToCar.bind(carController))
-  .post('/', () => {}) // create new car
-  .patch('/:carId', () => {}) // update car
-  .delete('/:carId', () => {});
+  .patch(
+    '/set-gasoline-residue',
+    carController.setCarGasolineResidue.bind(carController)
+  )
+  .post('/create', carController.addNewCarToDb.bind(carController));
+// .patch('/:carId', () => {}) // update car
+// .delete('/:carId', () => {});
 
 module.exports = router;
