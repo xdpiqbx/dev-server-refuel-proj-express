@@ -1,5 +1,7 @@
 const express = require('express');
 
+const helmet = require('helmet');
+
 const dbDevRefuelBot = require('./db/connection');
 
 const driversRouter = require('./routes/api-01/driversRoutes');
@@ -11,6 +13,10 @@ const checksRouter = require('./routes/api-01/checksRoutes');
 const app = express();
 
 const PORT = process.env.PORT || 4200;
+
+app.use(helmet());
+
+app.disable('x-powered-by');
 
 app.use(express.json());
 

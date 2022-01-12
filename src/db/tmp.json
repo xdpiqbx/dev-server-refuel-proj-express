@@ -1,12 +1,28 @@
-{
-  "model": "Bugatti",
-  "number": "AA 7777 AA",
-  "gasoline_residue": 80,
-  "driversIds": [
-    { "$oid": "61366a88f98909519c91a623" },
-    { "$oid": "61366a88f98909519c91a624" },
-    { "$oid": "61366a88f98909519c91a651" },
-    { "$oid": "61366a88f98909519c91a652" },
-    { "$oid": "61366a88f98909519c91a65c" }
-  ]
-}
+[
+  {
+    "model": "Bugatti",
+    "number": "AA 7777 AA",
+    "gasoline_residue": 80,
+    "driversIds": [
+      { "$oid": "61366a88f98909519c91a623" },
+      { "$oid": "61366a88f98909519c91a624" },
+      { "$oid": "61366a88f98909519c91a651" },
+      { "$oid": "61366a88f98909519c91a652" },
+      { "$oid": "61366a88f98909519c91a65c" }
+    ]
+  },
+
+  {
+    "_id": "61dca190d80cacd52e90a4fd",
+    "model": "Bugatti VEYRON",
+    "number": "AA 7777 AA",
+    "gasoline_residue": 80,
+    "driversIds": [
+      { "$oid": "61366a88f98909519c91a623" },
+      { "$oid": "61366a88f98909519c91a624" },
+      { "$oid": "61366a88f98909519c91a651" },
+      { "$oid": "61366a88f98909519c91a652" },
+      { "$oid": "61366a88f98909519c91a65c" }
+    ]
+  }
+]

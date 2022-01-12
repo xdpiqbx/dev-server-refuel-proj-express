@@ -23,8 +23,8 @@ router
     '/set-gasoline-residue',
     carController.setCarGasolineResidue.bind(carController)
   )
-  .post('/create', carController.addNewCarToDb.bind(carController));
-// .patch('/:carId', () => {}) // update car
+  .post('/create', carController.addNewCarToDb.bind(carController))
+  .put('/update-car-data', carController.updateCarData.bind(carController));
 // .delete('/:carId', () => {});
 
 module.exports = router;
