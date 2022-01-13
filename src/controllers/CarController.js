@@ -88,9 +88,8 @@ class CarController extends MainController {
   async updateCarData(req, res, next) {
     try {
       const carData = req.body;
-      console.log({ carData });
-      // const result = await this.controller.carService.addNewCarToDb(carId);
-      // super.response(res, result);
+      const result = await this.controller.carService.updateCarData(carData);
+      super.response(res, result);
     } catch (error) {
       next(super.errorCatcher(error));
     }

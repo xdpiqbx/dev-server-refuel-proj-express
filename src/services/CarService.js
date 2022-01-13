@@ -72,6 +72,13 @@ class CarService {
       throw this.serviceErrorCatcher(error);
     }
   }
+  async updateCarData(carData) {
+    try {
+      return await this.repo.cars.updateCarData(carData);
+    } catch (error) {
+      throw this.serviceErrorCatcher(error);
+    }
+  }
 }
 
 module.exports = CarService;

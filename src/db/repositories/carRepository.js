@@ -70,6 +70,20 @@ const carRepository = {
     } catch (error) {
       throw repoErrorCatcher(error);
     }
+  },
+  updateCarData: async carData => {
+    try {
+      const { _id, model, number, gasoline_residue, driversIds } = carData;
+      const update = {
+        model,
+        number,
+        gasoline_residue,
+        driversIds: [...driversIds]
+      };
+      return await Car.findOneAndUpdate({ _id }, update, { new: true });
+    } catch (error) {
+      throw repoErrorCatcher(error);
+    }
   }
 };
 /*
