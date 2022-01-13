@@ -65,10 +65,22 @@ class CarController extends MainController {
     }
   }
 
-  async driversAdmittedToCar(req, res, next) {
+  async getDriversByCarId(req, res, next) {
     try {
       const { carId } = req.params;
       const drivers = await this.controller.carService.getDriversByCarId(carId);
+      super.response(res, drivers);
+    } catch (error) {
+      next(super.errorCatcher(error));
+    }
+  }
+
+  async getTotalInfoAboutCar(req, res, next) {
+    try {
+      const { carId } = req.params;
+      const drivers = await this.controller.carService.getTotalInfoAboutCar(
+        carId
+      );
       super.response(res, drivers);
     } catch (error) {
       next(super.errorCatcher(error));
@@ -90,6 +102,18 @@ class CarController extends MainController {
       const carData = req.body;
       const result = await this.controller.carService.updateCarData(carData);
       super.response(res, result);
+    } catch (error) {
+      next(super.errorCatcher(error));
+    }
+  }
+
+  async removeCar(req, res, next) {
+    try {
+      const { carId } = req.body;
+      console.log(carId);
+      // move from table cars to removed_cars
+      // remove from every driver
+      super.response(res, { test: 'remove' });
     } catch (error) {
       next(super.errorCatcher(error));
     }

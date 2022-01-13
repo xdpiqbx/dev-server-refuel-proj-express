@@ -57,10 +57,16 @@ class CarService {
       throw this.serviceErrorCatcher(error);
     }
   }
-  // **************************************************************************
   async getDriversByCarId(carId) {
     try {
       return await this.repo.cars.getDriversByCarId(carId);
+    } catch (error) {
+      throw this.serviceErrorCatcher(error);
+    }
+  }
+  async getTotalInfoAboutCar(carId) {
+    try {
+      return await this.repo.cars.getTotalInfoAboutCar(carId);
     } catch (error) {
       throw this.serviceErrorCatcher(error);
     }

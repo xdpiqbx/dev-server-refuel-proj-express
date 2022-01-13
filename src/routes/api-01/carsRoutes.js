@@ -18,13 +18,20 @@ router
     '/without-drivers-ids/:carId',
     carController.getCarByIdWithoutDriversIds.bind(carController)
   )
-  .get('/:carId', carController.driversAdmittedToCar.bind(carController))
+  .get(
+    '/car-drivers/:carId',
+    carController.getDriversByCarId.bind(carController)
+  )
+  .get(
+    '/total-info-about/:carId',
+    carController.getTotalInfoAboutCar.bind(carController)
+  )
   .patch(
     '/set-gasoline-residue',
     carController.setCarGasolineResidue.bind(carController)
   )
   .post('/create', carController.addNewCarToDb.bind(carController))
-  .put('/update-car-data', carController.updateCarData.bind(carController));
-// .delete('/:carId', () => {});
+  .put('/update-car-data', carController.updateCarData.bind(carController))
+  .post('/remove', carController.removeCar.bind(carController));
 
 module.exports = router;

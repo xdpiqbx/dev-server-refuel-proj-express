@@ -63,9 +63,18 @@ const carRepository = {
       throw repoErrorCatcher(error);
     }
   },
+  getTotalInfoAboutCar: async carId => {
+    // done
+    try {
+      return await Car.findById(carId).populate('driversIds', 'name');
+    } catch (error) {
+      throw repoErrorCatcher(error);
+    }
+  },
   addNewCarToDb: async newCar => {
     // done
     try {
+      // add this car to every driver
       return await Car.create(newCar);
     } catch (error) {
       throw repoErrorCatcher(error);
@@ -89,7 +98,6 @@ const carRepository = {
 /*
 Tasks:
   getTotalGasolineResidue
-  getTotalInfoAboutCar
 */
 
 module.exports = carRepository;
