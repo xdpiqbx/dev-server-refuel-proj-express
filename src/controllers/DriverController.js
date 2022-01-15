@@ -64,7 +64,6 @@ class DriverController extends MainController {
   async setTlgChatIdToDriver(req, res, next) {
     try {
       const { driverId, tlg_chatId } = req.body;
-      console.log({ driverId, tlg_chatId });
       const result = await this.controller.driverService.setTlgChatIdToDriver(
         driverId,
         tlg_chatId

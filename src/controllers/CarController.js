@@ -110,7 +110,6 @@ class CarController extends MainController {
   async removeCar(req, res, next) {
     try {
       const { carId } = req.body;
-      console.log(carId);
       // move from table cars to removed_cars
       // remove from every driver
       super.response(res, { test: 'remove' });

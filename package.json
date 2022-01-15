@@ -3,13 +3,14 @@
     "nodemon": "^2.0.15"
   },
   "dependencies": {
+    "date-fns": "^2.28.0",
     "dotenv": "^10.0.0",
     "express": "^4.17.2",
     "helmet": "^5.0.1",
     "mongoose": "^6.1.5"
   },
   "name": "dev-server-refuel-proj-express",
-  "description": "```code npm i -D nodemon npm i dotenv ```",
+  "description": "dev-server-refuel-proj-express",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
